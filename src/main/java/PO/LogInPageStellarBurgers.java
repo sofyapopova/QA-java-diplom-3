@@ -4,7 +4,12 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.page;
+
 public class LogInPageStellarBurgers extends BasePageStellarBurgers {
+
+    public static final String URL = ConstructorPageStellarBurgers.URL + "/login";
 
     //Локатор поля Email
     @FindBy(how = How.XPATH, using = ".//label[text() = 'Email']")
@@ -38,13 +43,19 @@ public class LogInPageStellarBurgers extends BasePageStellarBurgers {
     }
 
     //метод клика на кнопку Зарегистрироваться
-    public void clickSighInButton() {
+    public RegistrationPageStellarBurgers clickSighInButton() {
         signInButton.click();
+        return page(RegistrationPageStellarBurgers.class);
     }
 
     //метод клика на кнопку Восстановить пароль
     public void clickRestorePasswordButton() {
         restorePasswordButton.click();
+    }
+
+    //метод проверки наличия кнопки Войти
+    public void waitForLogInPageLoading() {
+        logInButton.shouldBe(visible);
     }
 
 }

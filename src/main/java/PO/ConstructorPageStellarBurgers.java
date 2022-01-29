@@ -6,7 +6,11 @@ import org.openqa.selenium.support.How;
 
 import java.security.PublicKey;
 
+import static com.codeborne.selenide.Selenide.page;
+
 public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
+
+    public static final String URL = "https://stellarburgers.nomoreparties.site";
 
     //Локатор кнопки Войти в аккаунт
     @FindBy(how = How.XPATH, using = ".//button[text() = 'Войти в аккаунт']")
@@ -22,8 +26,9 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
     private SelenideElement fillingsSectionButton;
 
     //метод клика на кнопку Войти в аккаунт
-    public void logInButtonClick() {
+    public LogInPageStellarBurgers logInButtonClick() {
         logInButton.click();
+        return page(LogInPageStellarBurgers.class);
     }
 
     //метод клика на кнопку перехода в раздел Булки

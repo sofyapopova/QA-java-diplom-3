@@ -1,6 +1,7 @@
 package com;
 
 import com.model.Tokens;
+import com.model.User;
 import com.model.UserRegisterResponse;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -60,11 +61,40 @@ public class UserOperations {
         return responseData;
     }
 
+    //метод авторизации пользователя
+    public static Map<String, String> login(User user) {
+        Map<String, String> inputDataMap = new HashMap<>();
+        inputDataMap.put("email", user.getEmail());
+        inputDataMap.put("password", user.getPassword());
+        inputDataMap.put("name", user.getName());
+
+        UserRegisterResponse response = given()
+                .spec(Base.getBaseSpec())
+                .and()
+                .body(inputDataMap)
+                .when()
+                .post("auth/login")
+                .body()
+                .as(UserRegisterResponse.class);
+
+        Map<String, String> responseData = new HashMap<>();
+        if (response != null) {
+            responseData.put("email", response.getUser().getEmail());
+            responseData.put("name", response.getUser().getName());
+            responseData.put("password", user.getPassword());
+            responseData.put("success", String.valueOf(response.isSuccess()));
+
+            Tokens.setAccessToken(response.getAccessToken().substring(7));
+            Tokens.setRefreshToken(response.getRefreshToken());
+        }
+        return responseData;
+    }
+
     /*
      метод удаления пользователя по токену, возвращенному после создания
      пользователя. Удаляем только в случае, если token заполнен.
      */
-    public void delete() {
+    public static void delete() {
         if (Tokens.getAccessToken() == null) {
             return;
         }

@@ -19,4 +19,9 @@ public class Tokens {
     public static void setRefreshToken(String refreshToken) {
         Tokens.refreshToken = refreshToken;
     }
+
+    public static void cleanTokens() {
+        Tokens.accessToken = null;
+        Tokens.refreshToken = null;
+    }
 }
