@@ -1,5 +1,6 @@
 import PO.ConstructorPageStellarBurgers;
 import PO.LogInPageStellarBurgers;
+import com.TestConfig;
 import com.UserOperations;
 import com.codeborne.selenide.WebDriverRunner;
 import com.github.javafaker.Faker;
@@ -9,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -20,6 +22,7 @@ public class UserRegistrationTest {
 
     @Before
     public void setUp() {
+        TestConfig.apply();
         randomUser = User.getRandom();
         constructorPageStellarBurgers = open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class);
     }
@@ -28,6 +31,7 @@ public class UserRegistrationTest {
     public void tearDown() {
         UserOperations.delete();
         Tokens.cleanTokens();
+        closeWebDriver();
     }
 
     @Test

@@ -1,7 +1,10 @@
 import PO.ConstructorPageStellarBurgers;
+import com.TestConfig;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertTrue;
 
@@ -11,7 +14,13 @@ public class ConstructorMenuTest {
 
     @Before
     public void setUp() {
+        TestConfig.apply();
         constructorPageStellarBurgers = open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class);
+    }
+
+    @After
+    public void tearDown() {
+        closeWebDriver();
     }
 
     @Test

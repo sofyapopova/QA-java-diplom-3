@@ -2,6 +2,7 @@ import PO.ConstructorPageStellarBurgers;
 import PO.LogInPageStellarBurgers;
 import PO.RegistrationPageStellarBurgers;
 import PO.RestorePasswordPage;
+import com.TestConfig;
 import com.UserOperations;
 import com.model.Tokens;
 import com.model.User;
@@ -9,8 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 import static org.junit.Assert.assertTrue;
 
 public class UserLogInTest {
@@ -19,6 +19,7 @@ public class UserLogInTest {
 
     @Before
     public void setUp() {
+        TestConfig.apply();
         randomUser = User.getRandom();
         UserOperations.register(randomUser);
     }
@@ -27,6 +28,7 @@ public class UserLogInTest {
     public void tearDown() {
         UserOperations.delete();
         Tokens.cleanTokens();
+        closeWebDriver();
     }
 
     @Test

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
 
@@ -40,6 +41,7 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
     @Step("Click on buns tab")
     public ConstructorPageStellarBurgers clickBunsTab() {
         bunsTab.parent().click();
+        sleep(1000);
         return this;
     }
 
@@ -47,6 +49,7 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
     @Step("Click on sauces tab")
     public ConstructorPageStellarBurgers clickSaucesTab() {
         saucesTab.parent().click();
+        sleep(1000);
         return this;
     }
 
@@ -54,6 +57,7 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
     @Step("Click on fillings tab")
     public ConstructorPageStellarBurgers clickFillingsTab() {
         fillingsTab.parent().click();
+        sleep(1000);
         return this;
     }
 

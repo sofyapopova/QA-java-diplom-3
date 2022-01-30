@@ -1,6 +1,7 @@
 import PO.AccountPageStellarBurgers;
 import PO.ConstructorPageStellarBurgers;
 import PO.LogInPageStellarBurgers;
+import com.TestConfig;
 import com.UserOperations;
 import com.model.Tokens;
 import com.model.User;
@@ -8,8 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -19,6 +19,7 @@ public class AccountTest {
 
     @Before
     public void setUp() {
+        TestConfig.apply();
         randomUser = User.getRandom();
         UserOperations.register(randomUser);
     }
@@ -28,6 +29,7 @@ public class AccountTest {
         UserOperations.delete();
         Tokens.cleanTokens();
         Tokens.clearLocalStorage();
+        closeWebDriver();
     }
 
     @Test
