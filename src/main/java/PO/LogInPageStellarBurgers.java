@@ -56,10 +56,16 @@ public class LogInPageStellarBurgers extends BasePageStellarBurgers {
         restorePasswordButton.click();
     }
 
-    //метод проверки наличия кнопки Войти
+    //метод ожидания загрузки страницы
     @Step("Wait for log in page loading")
     public void waitForLogInPageLoading() {
         logInButton.shouldBe(visible);
+    }
+
+    //метод проверки наличия кнопки Войти
+    @Step("Check log in button is displayed")
+    public boolean isLogInButtonDisplayed() {
+        return logInButton.shouldBe(visible).isDisplayed();
     }
 
     //метод входа пользователя

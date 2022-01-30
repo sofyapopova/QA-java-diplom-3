@@ -37,19 +37,19 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
 
     //метод клика на кнопку перехода в раздел Булки
     @Step("Click on buns tab")
-    public void bunsTabClick() {
+    public void clickBunsTab() {
         bunsTab.click();
     }
 
     //метод клика на кнопку перехода в раздел Соусы
     @Step("Click on sauces tab")
-    public void saucesTabClick() {
+    public void clickSaucesTab() {
         bunsTab.click();
     }
 
     //метод клика на кнопку перехода в раздел Начинки
     @Step("Click on fillings tab")
-    public void fillingsTabClick() {
+    public void clickFillingsTab() {
         bunsTab.click();
     }
 
@@ -58,4 +58,5 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
     public boolean isCreateOrderButtonDisplayed() {
         return createOrderButton.shouldBe(visible).isDisplayed();
     }
+
 }

@@ -1,6 +1,7 @@
 package PO;
 
 import com.codeborne.selenide.SelenideElement;
+import com.model.Tokens;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -33,5 +34,12 @@ public abstract class BasePageStellarBurgers {
     @Step("Click constructor header button")
     public void constructorHeaderButtonClick() {
         constructorHeaderButton.click();
+    }
+
+    //метод устанавливает токены в local storage
+    @Step("Set tokens in local storage")
+    public BasePageStellarBurgers setTokensInLocalStorage() {
+        Tokens.setTokensInLocalStorage();
+        return this;
     }
 }
