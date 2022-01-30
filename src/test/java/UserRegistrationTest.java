@@ -33,7 +33,7 @@ public class UserRegistrationTest {
     @Test
     public void userSuccessfullyRegistered() {
 
-        constructorPageStellarBurgers.logInButtonClick()
+        constructorPageStellarBurgers.clickLogInButton()
                 .clickSighInButton()
                 .registerUser(randomUser)
                 .navigateToLogInPage();
@@ -55,7 +55,7 @@ public class UserRegistrationTest {
         String incorrectPassword = new Faker().internet().password(1, 5);
         User userWithIncorrectPassword = randomUser.setPassword(incorrectPassword);
 
-        boolean isIncorrectPasswordErrorDisplayed = constructorPageStellarBurgers.logInButtonClick()
+        boolean isIncorrectPasswordErrorDisplayed = constructorPageStellarBurgers.clickLogInButton()
                 .clickSighInButton()
                 .registerUser(userWithIncorrectPassword)
                 .isIncorrectPasswordErrorDisplayed();

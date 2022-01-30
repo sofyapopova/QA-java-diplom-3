@@ -1,10 +1,9 @@
 package PO;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
-import io.qameta.allure.Step;
 
 public class RestorePasswordPage extends BasePageStellarBurgers {
 

@@ -4,7 +4,6 @@ import com.model.Tokens;
 import com.model.User;
 import com.model.UserRegisterResponse;
 import io.qameta.allure.Step;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.HashMap;
 import java.util.Map;

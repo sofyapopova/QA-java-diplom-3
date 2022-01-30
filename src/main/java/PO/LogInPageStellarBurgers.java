@@ -76,10 +76,4 @@ public class LogInPageStellarBurgers extends BasePageStellarBurgers {
         clickLogInButton();
         return page(ConstructorPageStellarBurgers.class);
     }
-
-//    //метод перехода на страницу конструктора
-//    @Step("Navigate to constructor page")
-//    public ConstructorPageStellarBurgers navigateToConstructorPage() {
-//        return page(ConstructorPageStellarBurgers.class);
-//    }
 }

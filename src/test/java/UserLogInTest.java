@@ -21,7 +21,6 @@ public class UserLogInTest {
     public void setUp() {
         randomUser = User.getRandom();
         UserOperations.register(randomUser);
-
     }
 
     @After
@@ -32,8 +31,9 @@ public class UserLogInTest {
 
     @Test
     public void checkLogInByAccountHeaderButton() {
+
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
-                .accountHeaderButtonClick();
+                .clickAccountHeaderButton();
 
         LogInPageStellarBurgers logInPageStellarBurgers = page(LogInPageStellarBurgers.class);
 
@@ -45,8 +45,9 @@ public class UserLogInTest {
 
     @Test
     public void checkLogInByButtonOnConstructorPage() {
+
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
-                .logInButtonClick();
+                .clickLogInButton();
 
         LogInPageStellarBurgers logInPageStellarBurgers = page(LogInPageStellarBurgers.class);
 

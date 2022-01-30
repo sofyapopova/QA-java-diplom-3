@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
 
     public static final String URL = "https://stellarburgers.nomoreparties.site";
+    private String currentTabClassName = "tab_tab_type_current__2BEPc";
 
     //Локатор кнопки Войти в аккаунт
     @FindBy(how = How.XPATH, using = ".//button[text() = 'Войти в аккаунт']")
@@ -30,33 +31,60 @@ public class ConstructorPageStellarBurgers extends BasePageStellarBurgers {
 
     //метод клика на кнопку Войти в аккаунт
     @Step("Click log in button")
-    public LogInPageStellarBurgers logInButtonClick() {
+    public LogInPageStellarBurgers clickLogInButton() {
         logInButton.click();
         return page(LogInPageStellarBurgers.class);
     }
 
     //метод клика на кнопку перехода в раздел Булки
     @Step("Click on buns tab")
-    public void clickBunsTab() {
-        bunsTab.click();
+    public ConstructorPageStellarBurgers clickBunsTab() {
+        bunsTab.parent().click();
+        return this;
     }
 
     //метод клика на кнопку перехода в раздел Соусы
     @Step("Click on sauces tab")
-    public void clickSaucesTab() {
-        bunsTab.click();
+    public ConstructorPageStellarBurgers clickSaucesTab() {
+        saucesTab.parent().click();
+        return this;
     }
 
     //метод клика на кнопку перехода в раздел Начинки
     @Step("Click on fillings tab")
-    public void clickFillingsTab() {
-        bunsTab.click();
+    public ConstructorPageStellarBurgers clickFillingsTab() {
+        fillingsTab.parent().click();
+        return this;
     }
 
     //метод определяет, появилась ли кнопка Оформить заказ
     @Step("Display create order button")
     public boolean isCreateOrderButtonDisplayed() {
         return createOrderButton.shouldBe(visible).isDisplayed();
+    }
+
+    //метод возвращает классы вкладки Булки
+    @Step("Get buns tab class names")
+    public String getBunsTabClassNames() {
+        return bunsTab.parent().attr("class");
+    }
+
+    //метод возвращает классы вкладки Соусы
+    @Step("Get sauces tab class names")
+    public String getSaucesTabClassNames() {
+        return saucesTab.parent().attr("class");
+    }
+
+    //метод возвращает классы вкладки Начинки
+    @Step("Get fillings tab class names")
+    public String getFillingsTabClassNames() {
+        return fillingsTab.parent().attr("class");
+    }
+
+    //метод проверяет, содержится ли класс выбранной вкладки в списке классов
+    @Step("Check selected tab contains current tab class name")
+    public boolean isCurrentTabSelected(String tabClassName) {
+        return tabClassName.contains(currentTabClassName);
     }
 
 }

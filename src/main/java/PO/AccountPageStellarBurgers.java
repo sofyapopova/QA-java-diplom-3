@@ -12,7 +12,6 @@ public class AccountPageStellarBurgers extends BasePageStellarBurgers {
     //Локатор кнопки Выход
     @FindBy(how = How.XPATH, using = ".//button[text() = 'Выход']")
     private SelenideElement logOutButton;
-
     //Локатор плейсхолдера Имя
     @FindBy(how = How.XPATH, using = ".//label[text() = 'Имя']")
     private SelenideElement nameLabel;
@@ -22,7 +21,7 @@ public class AccountPageStellarBurgers extends BasePageStellarBurgers {
 
     //метод клика на кнопку Выход
     @Step("Click log out button")
-    public void logOutButtonClick() {
+    public void clickLogOutButton() {
         logOutButton.click();
     }
 

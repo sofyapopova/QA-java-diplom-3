@@ -32,9 +32,10 @@ public class AccountTest {
 
     @Test
     public void checkUserCanOpenHisAccount() {
+
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
                 .setTokensInLocalStorage()
-                .accountHeaderButtonClick();
+                .clickAccountHeaderButton();
 
         AccountPageStellarBurgers accountPageStellarBurgers = page(AccountPageStellarBurgers.class);
 
@@ -49,8 +50,8 @@ public class AccountTest {
 
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
                 .setTokensInLocalStorage()
-                .accountHeaderButtonClick();
-        page(AccountPageStellarBurgers.class).constructorHeaderButtonClick();
+                .clickAccountHeaderButton();
+        page(AccountPageStellarBurgers.class).clickConstructorHeaderButton();
 
         ConstructorPageStellarBurgers constructorPageStellarBurgers = page(ConstructorPageStellarBurgers.class);
 
@@ -62,8 +63,8 @@ public class AccountTest {
 
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
                 .setTokensInLocalStorage()
-                .accountHeaderButtonClick();
-        page(AccountPageStellarBurgers.class).stellarBurgersLogoClick();
+                .clickAccountHeaderButton();
+        page(AccountPageStellarBurgers.class).clickStellarBurgersLogo();
 
         ConstructorPageStellarBurgers constructorPageStellarBurgers = page(ConstructorPageStellarBurgers.class);
 
@@ -75,8 +76,8 @@ public class AccountTest {
 
         open(ConstructorPageStellarBurgers.URL, ConstructorPageStellarBurgers.class)
                 .setTokensInLocalStorage()
-                .accountHeaderButtonClick();
-        page(AccountPageStellarBurgers.class).logOutButtonClick();
+                .clickAccountHeaderButton();
+        page(AccountPageStellarBurgers.class).clickLogOutButton();
 
         assertTrue("Log in button is not displayed", page(LogInPageStellarBurgers.class).isLogInButtonDisplayed());
     }

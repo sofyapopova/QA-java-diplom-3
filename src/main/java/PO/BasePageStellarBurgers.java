@@ -20,19 +20,19 @@ public abstract class BasePageStellarBurgers {
 
     //метод клика на логотип Stellar burgers в хедере
     @Step("Click on Stellar burgers logo")
-    public void stellarBurgersLogoClick() {
+    public void clickStellarBurgersLogo() {
         stellarBurgersHeaderLogo.click();
     }
 
     //метод клика на кнопку Личный кабинет в хедере
     @Step("Click account header button")
-    public void accountHeaderButtonClick() {
+    public void clickAccountHeaderButton() {
         accountHeaderButton.click();
     }
 
     //метод клика на кнопку Конструктор в хедере
     @Step("Click constructor header button")
-    public void constructorHeaderButtonClick() {
+    public void clickConstructorHeaderButton() {
         constructorHeaderButton.click();
     }
 
