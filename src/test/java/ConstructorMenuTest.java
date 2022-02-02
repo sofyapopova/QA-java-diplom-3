@@ -1,4 +1,4 @@
-import PO.ConstructorPageStellarBurgers;
+import po.ConstructorPageStellarBurgers;
 import com.TestConfig;
 import org.junit.After;
 import org.junit.Before;

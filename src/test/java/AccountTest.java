@@ -1,6 +1,6 @@
-import PO.AccountPageStellarBurgers;
-import PO.ConstructorPageStellarBurgers;
-import PO.LogInPageStellarBurgers;
+import po.AccountPageStellarBurgers;
+import po.ConstructorPageStellarBurgers;
+import po.LogInPageStellarBurgers;
 import com.TestConfig;
 import com.UserOperations;
 import com.model.Tokens;
